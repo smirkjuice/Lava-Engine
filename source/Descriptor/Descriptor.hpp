@@ -9,7 +9,7 @@ namespace Lava
         Descriptor()          = default;
         virtual ~Descriptor() = default;
 
-        virtual WriteDescriptorSet get_write_descriptor(
+        virtual WriteDescriptorSet GetWriteDescriptor(
           std::size_t binding,
           vk::DescriptorType descriptor_type,
           const std::optional<OffsetSize>& offset_size) const = 0;

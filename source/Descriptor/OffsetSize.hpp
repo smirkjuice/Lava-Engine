@@ -16,15 +16,8 @@ namespace Lava
         {
         }
 
-        std::size_t get_offset() const
-        {
-            return offset;
-        }
-
-        std::size_t get_size() const
-        {
-            return size;
-        }
+        std::size_t GetOffset() const { return offset; }
+        std::size_t GetSize() const { return size; }
 
         bool operator==(const OffsetSize& other) const
         {
@@ -32,9 +25,7 @@ namespace Lava
         }
         bool operator!=(const OffsetSize& other) const
         {
-            // I know I could just call operator== and reverse the result,
-            // but I don't wanna.
-            return offset != other.offset && size != other.size;
+            return !operator==(other);
         }
     };
 } // namespace Lava

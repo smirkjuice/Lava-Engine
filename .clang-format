@@ -9,7 +9,7 @@ AlignConsecutiveAssignments:
   AcrossComments: true
   AlignCompound: true
   AlignFunctionPointers: true
-  PadOperators: true
+  PadOperators: false
 AlignConsecutiveBitFields:
   Enabled: false
   AcrossEmptyLines: false
@@ -37,7 +37,7 @@ AlignConsecutiveShortCaseStatements:
   AcrossComments: true
   AlignCaseColons: false
 AlignEscapedNewlines: Left
-AlignOperands: AlignAfterOperator
+AlignOperands: Align
 AlignTrailingComments:
   Kind: Always
   OverEmptyLines: 0
@@ -48,7 +48,7 @@ AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortCompoundRequirementOnASingleLine: true
 AllowShortEnumsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: Inline
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
@@ -84,7 +84,7 @@ BreakAdjacentStringLiterals: true
 BreakAfterAttributes: Leave
 BreakAfterJavaFieldAnnotations: false
 BreakArrays: true
-BreakBeforeBinaryOperators: None
+BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Allman
 BreakBeforeConceptDeclarations: Always
 BreakBeforeInlineASMColon: Always

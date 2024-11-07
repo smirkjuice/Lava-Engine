@@ -1,8 +1,11 @@
 #pragma once
+#include <coroutine>
+#include <csignal>
 #include <cstdint>
 #include <string>
 #include <vector>
 #include <vulkan/vulkan.hpp>
+#include <vulkan/vulkan_enums.hpp>
 
 
 namespace Lava
@@ -12,6 +15,7 @@ namespace Lava
       public:
 
         using define = std::pair<std::string, std::string>;
+
 
         class VertexInput
         {
@@ -27,12 +31,12 @@ namespace Lava
             {
             }
 
-            std::vector<vk::VertexInputBindingDescription> get_binding_descriptions() const
+            std::vector<vk::VertexInputBindingDescription> GetBindingDescriptions() const
             {
                 return binding_descriptions;
             }
 
-            std::vector<vk::VertexInputAttributeDescription> get_attribute_descriptions() const
+            std::vector<vk::VertexInputAttributeDescription> GetAttributeDescriptions() const
             {
                 return attribute_descriptions;
             }
@@ -45,7 +49,7 @@ namespace Lava
             {
                 return binding_descriptions.front().binding > other.binding_descriptions.front().binding;
             }
-        }; // End of VertexInput
+        }; // End of Vertex Input
 
 
         class Uniform
@@ -76,12 +80,33 @@ namespace Lava
                 gl_type(gl_type_arg),
                 is_read_only(is_read_only_arg),
                 is_write_only(is_write_only_arg)
-            //! TODO: Find a better naming convention for initialiser lists.
-            // I don't like the "m_" prefix for members, and the "_arg" suffix looks messy
             {
+                //! TODO: Find a better naming convention for initialiser lists.
+                // I don't like the "m_" prefix for members, and the "_arg" suffix looks messy
             }
-        };// End of Uniform
 
-        
+            vk::ShaderStageFlags GetStageFlags() const { return stage_flags; }
+            std::int32_t GetBinding() const { return binding; }
+            std::int32_t GetOffset() const { return offset; }
+            std::int32_t GetSize() const { return size; }
+            std::int32_t GetGlType() const { return gl_type; }
+            bool IsReadOnly() const { return is_read_only; }
+            bool IsWriteOnly() const { return is_write_only; }
+
+
+            bool operator==(const Uniform& other) const
+            {
+                //! TODO: Fix .clang-format to make this neat
+                return binding == other.binding && offset == other.offset && size == other.size
+                       && gl_type == other.gl_type && is_read_only == other.is_read_only
+                       && is_write_only == other.is_write_only && stage_flags == other.stage_flags;
+            }
+
+            bool operator!=(const Uniform& other) const { return !operator==(other); }
+
+            
+        }; // End of Uniform
+
+
     }; // End of Shader
 } // namespace Lava

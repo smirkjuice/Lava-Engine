@@ -27,10 +27,7 @@ namespace Lava
         {
         }
 
-        const vk::WriteDescriptorSet& get_write_descriptor_set() const
-        {
-            return write_descriptor_set;
-        }
+        const vk::WriteDescriptorSet& GetWriteDescriptorSet() const { return write_descriptor_set; }
     };
 
 } // namespace Lava
