@@ -89,10 +89,10 @@ BreakBeforeBraces: Allman
 BreakBeforeConceptDeclarations: Always
 BreakBeforeInlineASMColon: Always
 BreakBeforeTernaryOperators: true
-BreakConstructorInitializers: AfterColon
+BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: AfterColon
 BreakStringLiterals: true
-ColumnLimit: 90
+ColumnLimit: 105
 CommentPragmas: "^ IWYU pragma:"
 CompactNamespaces: true
 ConstructorInitializerIndentWidth: 2
@@ -195,7 +195,7 @@ SpaceAfterTemplateKeyword: false
 SpaceAroundPointerQualifiers: Default
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCaseColon: false
-SpaceBeforeCpp11BracedList: true
+SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeJsonColon: false

@@ -5,10 +5,14 @@ namespace Lava
 {
     class OffsetSize
     {
+      private:
+        std::size_t offset;
+        std::size_t size;
+
       public:
-        OffsetSize(std::size_t offset_arg, std::size_t size_arg) :
-          offset(offset_arg),
-          size(size_arg)
+        OffsetSize(std::size_t offset_arg, std::size_t size_arg)
+          : offset(offset_arg),
+            size(size_arg)
         {
         }
 
@@ -32,9 +36,5 @@ namespace Lava
             // but I don't wanna.
             return offset != other.offset && size != other.size;
         }
-
-      private:
-        std::size_t offset;
-        std::size_t size;
     };
 } // namespace Lava
